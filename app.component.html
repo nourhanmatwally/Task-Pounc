@@ -1,0 +1,221 @@
+
+<div>
+  Hello From Angler
+</div>
+<br>
+
+<div>====================================</div>
+
+<!-- ///////////////////////// -->
+<!-- // 5: Interpolation // {{ value || variable || method || expression }} -->
+<!-- ///////////////////////// -->
+
+<h1>this is {{pageTitle()}}</h1>
+
+<div>====================================</div>
+
+<h2>this is {{"title"}}</h2>
+
+<div>====================================</div>
+
+<h3>this is {{isHome ? "This Is Home Page" : "About Page"}}</h3>
+
+<div>====================================</div>
+
+<!-- ///////////////////////// -->
+<!-- // 6: Property Binding // [property]="value || variable || method" -->
+<!-- ///////////////////////// -->
+
+<br>
+<input type="text" placeholder="Email" [value]="DefultEmail">
+<br>
+<br>
+
+<div>====================================</div>
+
+<!-- ///////////////////////// -->
+<!-- // 7: Class Binding // [class."className"] = "value" || [ngClass] = "{...} || method return object" -->
+<!-- // 8: Style Binding // [style."validCssProperty"] = "value" || [ngStyle] = "{...} || method return object" -->
+<!-- ///////////////////////// -->
+
+<p [class.header]="isHeader" [class.bold]="isHeader" [class.uppercase]="!isHeader" [class.italic]="!isHeader">Hello New
+  World (Class Biding)
+</p>
+
+<div>====================================</div>
+
+<!-- ///////////////////////// -->
+<!-- // NG (ngClass) Short Hand -->
+<!-- ///////////////////////// -->
+
+<p [ngClass]="{
+  header: isHeader,
+  bold: isHeader,
+  uppercase: !isHeader,
+  italic: !isHeader
+}">Hello New World (Class Biding)
+</p>
+
+<div>====================================</div>
+
+<!-- ///////////////////////// -->
+<!-- // NG (ngClass) Short Short Hand And Clear For Html -->
+<!-- ///////////////////////// -->
+
+<p [ngClass]="headerClasses()">Hello New World (Class Biding)
+</p>
+
+<div>====================================</div>
+
+<!-- ///////////////////////// -->
+<!-- // 8: Style Binding // [style."validCssProperty"] = "value" || [ngStyle] = "{...} || method return object" -->
+<!-- ///////////////////////// -->
+<!-- Nader Ast5damoh  -->
+<!--  -->
+<!-- ///////////////////////// -->
+
+<p style="font-size: 1rem;">
+  Style Binding
+</p>
+
+<div>====================================</div>
+
+<!-- ///////////////////////// -->
+<!-- // 8: Style Binding // [style."validCssProperty"] = "value" || [ngStyle] = "{...} || method return object" -->
+<!-- ///////////////////////// -->
+<!-- Single Style Biding -->
+<!-- ///////////////////////// -->
+
+<p [style.fontSize]="isHeader ? '3rem' : '2rem'">
+  Style Binding (Single)
+</p>
+
+<div>====================================</div>
+
+<!-- ///////////////////////// -->
+<!-- // 8: Style Binding // [style."validCssProperty"] = "value" || [ngStyle] = "{...} || method return object" -->
+<!-- ///////////////////////// -->
+<!-- Mulitple Style Biding -->
+<!-- ///////////////////////// -->
+
+<p [ngStyle]="{
+  fontSize: isHeader ? '3rem' : '2rem',
+  fontWeght: isHeader ? 'bold' : '200'
+}">
+  Style Binding (Mulitple)
+</p>
+
+<div>====================================</div>
+
+<!-- ///////////////////////// -->
+<!-- // 8: Style Binding // [style."validCssProperty"] = "value" || [ngStyle] = "{...} || method return object" -->
+<!-- ///////////////////////// -->
+<!-- Single Style Biding  (Short Hand) -->
+<!-- ///////////////////////// -->
+
+<p [style.fontSize]="singleStyleBinding">
+  Style Binding (Single-Short Hand)
+</p>
+
+<div>====================================</div>
+
+
+<!-- ///////////////////////// -->
+<!-- // 8: Style Binding // [style."validCssProperty"] = "value" || [ngStyle] = "{...} || method return object" -->
+<!-- ///////////////////////// -->
+<!-- Mulitple Style Biding (Short Hand) -->
+<!-- ///////////////////////// -->
+
+<p [ngStyle]="mulitapleStyleBiding">
+  Style Binding (Mulitple- Short Hand)
+</p>
+
+<div>====================================</div>
+
+<!-- ///////////////////////// -->
+<!-- // 9: Event Binding // (eventName) = "method() || method($event) || template expression" -->
+<!-- ///////////////////////// -->
+
+<button class="button button1" (click)="toggleHeaderState()">True Or False</button>
+
+<!-- <div>====================================</div> -->
+
+
+<h3>IsHeader: {{isHeader}}</h3>
+
+
+
+
+<!-- ****** Structural Directives ****** -->
+
+<!-- ///////////////////////// -->
+<!-- 1: ngIf // [*ngIf = "value || condition"]  || [*ngIf="condition; else "templateVariable"]  -->
+<!-- ///////////////////////// -->
+
+<div *ngIf="hero" >{{hero.name}}</div>
+
+<!-- ///////////////////////// -->
+<!-- 2: ngSwitch // a: For Parent => [ngSwitch] = "switchVariable" | b: For Child => *ngSwitchCase="switchCaseValue" -->
+<!-- ///////////////////////// -->
+
+<p>Hip!</p>
+<template>
+  <p>Hip!</p>
+</template>
+<p>Hooray!</p>
+
+<!-- ///////////////////////// -->
+<!-- 3: ngFor // *ngFor="let variable of list; index as i; first as f; last as l; odd as o; even as e" -->
+<!-- ///////////////////////// -->
+
+<div *ngFor="let hero of heroes; let i=index; let odd=odd; trackBy: trackById" [class.odd]="odd">
+  ({{i}}) {{hero.name}}
+</div>
+
+<div template="ngFor let hero of heroes; let i=index; let odd=odd; trackBy: trackById" [class.odd]="odd">
+  ({{i}}) {{hero.name}}
+</div>
+
+<template ngFor let-hero [ngForOf]="heroes" let-i="index" let-odd="odd" [ngForTrackBy]="trackById">
+  <div [class.odd]="odd">({{i}}) {{hero.name}}</div>
+</template>
+
+<!-- ///////////////////////// -->
+<!-- 4: Component Interactions // @Input() & @Output() -->
+<!-- ///////////////////////// -->
+
+
+
+<!-- ///////////////////////// -->
+<!-- 5: Pipes (Transform Data Before Displaying Them In The View) -->
+<!-- ///////////////////////// -->
+
+
+
+<!-- ///////////////////////// -->
+<!-- // For String [ value | lowercase, uppercase, titlecase, slice:startFromIndex:endIndex, json, ] -->
+<!-- ///////////////////////// -->
+
+
+
+<!-- ///////////////////////// -->
+<!-- // For Number [ value | number:'minIntDigits.minDecimalDigits-maxDecimalDigits' ] -->
+<!-- ///////////////////////// -->
+
+
+
+<!-- ///////////////////////// -->
+ <!-- // For Percent [value | percent] -->
+<!-- /////////////////////////  -->
+
+
+
+<!-- ///////////////////////// -->
+<!-- // For Currency [value | currency, currency: 'LE' : code] -->
+<!-- ///////////////////////// -->
+
+
+
+<!-- ///////////////////////// -->
+<!-- // For Date [value | date:'short, shortDate, shortTime, long, longDate, longTime'] -->
+<!-- ///////////////////////// -->
